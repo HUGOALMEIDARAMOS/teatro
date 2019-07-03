@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Now UI Dashboard by Creative Tim
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/now-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/demo/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/estilo_paginas.css">
+
+
+    <!--<script type="text/javascript">
+        $(document).ready(function(){
+
+            var input =
+                '<label style="display: block">Nome: ' +
+                '<input type="text" name="foto[]" /> ' +
+                '<a href="#" class="remove">X</a>' +
+                '</label>';
+            $("input[name='add']").click(function( e ){
+                $('#inputs_adicionais').append( input );
+            });
+
+            $('#inputs_adicionais').delegate('a','click',function( e ){
+                e.preventDefault();
+                $( this ).parent('label').remove();
+            });
+        });
+    </script>-->
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+<div class="row mt-2"  id="origem"><!--SEGUNDA LINHA  DO 1º CARD-->
+
+    <!--ESCOLHA DO TIPO DE INGRESSO: INTEIRA/MEIA-->
+
+    <div class="col-sm-12 col-lg-2">
+        <label for="validationtipoIngresso">Tipo</label>
+        <select class="form-control" id="validationtipoIngresso"  name="ingresso[]" required>
+            <option></option>
+            <option value="inteira">Inteira</option>
+            <option value="meia">Meia</option>
+            <option value="cortesia">Cortesia</option>
+        </select>
+        <div class="valid-feedback">Preenchido com sucesso</div>
+        <div class="invalid-feedback">campo vazio ou valor errado.</div>
+    </div>
+
+
+    <!--ESCOLHA A  QUANTIDADE A COMPRAR-->
+
+    <div class="col-sm-12 col-lg-2">
+        <label for="validationQtd">Quantidade</label>
+        <input type="number" class="form-control" id="validationQtd" placeholder="Qtd" name="quantidade[]" required>
+        <div class="valid-feedback">Preenchido com sucesso</div>
+        <div class="invalid-feedback">campo vazio ou valor errado.</div>
+    </div>
+
+    <!--ESCOLHA DA PLATEIA: FRISO/CAMAROTE/GALERIA/PLATEIA-->
+
+    <div class="col-sm-12 col-lg-2">
+        <label for="validationPlateia">Platéia</label>
+        <select class="form-control" id="validationPlateia" name="plateia[]" required>
+            <option></option>
+            <option value="plateia">Platéia</option>
+            <option value="frisa">Frisa</option>
+            <option value="camarote">Camarote</option>
+            <option value="balcao">Balcão</option>
+            <option value="galeria">Galeria</option>
+        </select>
+        <div class="valid-feedback">Preenchido com sucesso</div>
+        <div class="invalid-feedback">campo vazio ou valor errado.</div>
+    </div>
+
+    <!--ESCOLHA DAS OPÇOES DEPENDENDO DA ESCOLHA ANTERIOR-->
+
+
+
+    <div class="col-sm-12 col-lg-2">
+
+        <div id="opcao_plateia" class="hidden">
+            <label for="validationData">Fileira</label>
+            <select class="form-control" id="validationData" name="fileira[]" required>
+                <option></option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <div class="valid-feedback">Preenchido com sucesso</div>
+            <div class="invalid-feedback">campo vazio ou valor errado.</div>
+        </div>
+
+        <div id="opcao_outra"  class="hidden">
+            <label for="validationCabine">Cabine</label>
+            <select class="form-control" id="validationCabine" name="cabine[]" required>
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <div class="valid-feedback">Preenchido com sucesso</div>
+            <div class="invalid-feedback">campo vazio ou valor errado.</div>
+        </div>
+    </div>
+
+
+    <!--ESCOLHA DAS OPÇOES DEPENDENDO DA ESCOLHA ANTERIOR-->
+
+    <div class="col-sm-12 col-lg-2">
+        <div id="opcao_plateia_assento"  class="hidden">
+            <label for="assentoPlateia">Assento</label>
+            <select multiple class="form-control" id="assentoPlateia" name="assento[]" required  size="2" >
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+            </select>
+            <div class="valid-feedback">Preenchido com sucesso</div>
+            <div class="invalid-feedback">campo vazio ou valor errado.</div>
+        </div>
+
+        <div id="opcao_outra_assento"   class="hidden">
+            <label for="validationDatah">Cabine</label>
+            <select multiple class="form-control" id="validationDatah" name="cabine[]" required size="2">
+
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+            </select>
+            <div class="valid-feedback">Preenchido com sucesso</div>
+            <div class="invalid-feedback">campo vazio ou valor errado.</div>
+        </div>
+    </div>
+
+    <!-- abaixo soma dos valores dos inputs-->
+
+    <input type="number"  class="form-control"   name="valor[]" value="1000" hidden>
+
+
+
+    <!-- acima soma dos valores dos inputs-->
+
+    <div class="col-sm-12 col-lg-2">
+        <label for="validationAdd">Adcionar</label>
+        <button type="button" id= "validationAdd" class="btn btn-danger btn-sm btn-block" name="add">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </div>
+
+
+</div><!--2º LINHA DO 1º CARD-->
+
+<div class="row">
+    <div class="col-lg-2 col-sm-12">
+        <label for="validationAdd">Adcionar</label>
+        <button type="button" class="btn btn-primary btn-sm btn-block" name="add">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+</div>
+
+
+
+<fieldset id="inputs_adicionais" style="border: none"></fieldset>
+
+
+<hr><hr>
+
+<label for="">Qtd</label>
+<select name="children-qnt" id="children-qnt">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+</select>
+<fieldset id="children">
+
+</fieldset><!-- #children -->
+
+
+
+<!--   Core JS Files   -->
+<script src="../assets/js/hugo.js"></script>
+<script src="../assets/js/core/jquery.min.js"></script>
+<script src="../assets/js/core/popper.min.js"></script>
+<script src="../assets/js/core/bootstrap.min.js"></script>
+<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chart JS -->
+<script src="../assets/js/plugins/chartjs.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="../assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/now-ui-dashboard.min.js?v=1.1.0" type="text/javascript"></script>
+<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+<script src="../assets/demo/demo.js"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        var input =
+
+            '<div class="row mt-2"  id="origem">' +
+
+            '<div class="col-sm-12 col-lg-2">' +
+            '<label for="validationtipoIngresso">Tipo</label>' +
+            '<select class="form-control" id="validationtipoIngresso"  name="ingresso[]" required>' +
+            '<option></option>' +
+            '<option value="inteira">Inteira</option>' +
+            '<option value="meia">Meia</option>' +
+            '<option value="cortesia">Cortesia</option>' +
+            '</select>' +
+            '<div class="valid-feedback">Preenchido com sucesso</div>' +
+            '<div class="invalid-feedback">campo vazio ou valor errado.</div>' +
+            '</div>' +
+
+
+            '<div class="col-sm-12 col-lg-2">' +
+            '<label for="validationQtd">Quantidade</label>' +
+            '<input type="number" class="form-control" id="validationQtd" placeholder="Qtd" name="quantidade[]" required>' +
+            '<div class="valid-feedback">Preenchido com sucesso</div>' +
+            '<div class="invalid-feedback">campo vazio ou valor errado.</div>' +
+            '</div>' +
+
+
+            '<div class="col-sm-12 col-lg-2">' +
+            '<label for="validationPlateia">Platéia</label>' +
+            '<select class="form-control" id="validationPlateia" name="plateia[]" required>' +
+            '<option></option>' +
+            '<option value="plateia">Platéia</option>' +
+            '<option value="frisa">Frisa</option>' +
+            '<option value="camarote">Camarote</option>' +
+            ' <option value="balcao">Balcão</option>' +
+            ' <option value="galeria">Galeria</option>' +
+            ' </select>' +
+            '<div class="valid-feedback">Preenchido com sucesso</div>' +
+            '<div class="invalid-feedback">campo vazio ou valor errado.</div>' +
+            '</div>' +
+
+
+            '<div class="col-sm-12 col-lg-2">' +
+            '<div id="opcao_plateia" class="">' +
+            '<label for="validationData">Fileira</label>' +
+            '<select class="form-control" id="validationData" name="fileira[]" required>' +
+            '<option></option>' +
+            '<option>A</option>' +
+            '<option>B</option>' +
+            '<option>C</option>' +
+            '</select>' +
+            '<div class="valid-feedback">Preenchido com sucesso</div>' +
+            '<div class="invalid-feedback">campo vazio ou valor errado.</div>' +
+            '</div>' +
+
+
+            '<div id="opcao_outra"  class="">' +
+            '<label for="validationCabine">Cabine</label>' +
+            '<select class="form-control" id="validationCabine" name="cabine[]" required>' +
+            '<option></option>' +
+            '<option>1</option>' +
+            '<option>2</option>' +
+            '<option>3</option>' +
+            '<option>4</option>' +
+            '<option>5</option>' +
+            '</select>' +
+            '<div class="valid-feedback">Preenchido com sucesso</div>' +
+            '<div class="invalid-feedback">campo vazio ou valor errado.</div>' +
+            '</div>' +
+
+            '</div>' +
+
+
+            '<div class="col-sm-12 col-lg-2">' +
+            '<div id="opcao_plateia_assento"  class="hidden">' +
+            ' <label for="assentoPlateia">Assento</label>' +
+            '<select multiple class="form-control" id="assentoPlateia" name="assentoplateia[]" required  size="2" >' +
+            '<option>01</option>' +
+            '<option>02</option>' +
+            '<option>03</option>' +
+            '<option>04</option>' +
+            '<option>05</option>' +
+            '<option>06</option>' +
+            '<option>07</option>' +
+            '<option>08</option>' +
+            '</select>' +
+            '<div class="valid-feedback">Preenchido com sucesso</div>' +
+            '<div class="invalid-feedback">campo vazio ou valor errado.</div>' +
+            '</div>' +
+            '<div id="opcao_outra_assento"   class="hidden">' +
+            '<label for="validationDatah">Cabine</label>' +
+            '<select multiple class="form-control" id="validationDatah" name="assentocabine[]" required size="2">' +
+
+            '<option>01</option>' +
+            '<option>02</option>' +
+            '<option>03</option>' +
+            '<option>04</option>' +
+            '<option>05</option>' +
+            '<option>06</option>' +
+            '</select>' +
+            '<div class="valid-feedback">Preenchido com sucesso</div>' +
+            '<div class="invalid-feedback">campo vazio ou valor errado.</div>' +
+            '</div>' +
+            '</div>' +
+            '<input type="number"  class="form-control"   name="valor[]" value="1000" hidden>' +
+            '<div class="col-sm-12 col-lg-2">' +
+            '<label for="validationAdd">Adcionar</label>' +
+            '<button type="button" id= "validationAdd" class="btn btn-danger btn-sm btn-block" name="add">' +
+            '<i class="fas fa-trash-alt"></i>' +
+            '</button>' +
+            '</div>' +
+            '</div>';
+        $("button[name='add']").click(function( e ){
+            $('#inputs_adicionais').append( input);
+        });
+
+        $('#inputs_adicionais').delegate('a','click',function( e ){
+            e.preventDefault();
+            $( this ).parent('label').remove();
+        });
+    });
+</script>
+
+
+<script>
+    var $chidrenQnt = jQuery('#children-qnt'),
+        $children = jQuery('#children');
+
+
+
+    var Children = {};
+    Children.container = $children;
+    Children.add = function(i) {
+        while (i--) {
+            Children.container.append('<div class="row mt-2"  id="origem"><!--SEGUNDA LINHA  DO 1º CARD-->\n' +
+                '\n' +
+                '    <!--ESCOLHA DO TIPO DE INGRESSO: INTEIRA/MEIA-->\n' +
+                '\n' +
+                '    <div class="col-sm-12 col-lg-2">\n' +
+                '        <label for="validationtipoIngresso">Tipo</label>\n' +
+                '        <select class="form-control" id="validationtipoIngresso"  name="ingresso[]" required>\n' +
+                '            <option></option>\n' +
+                '            <option value="inteira">Inteira</option>\n' +
+                '            <option value="meia">Meia</option>\n' +
+                '            <option value="cortesia">Cortesia</option>\n' +
+                '        </select>\n' +
+                '        <div class="valid-feedback">Preenchido com sucesso</div>\n' +
+                '        <div class="invalid-feedback">campo vazio ou valor errado.</div>\n' +
+                '    </div>\n' +
+                '\n' +
+                '\n' +
+                '    <!--ESCOLHA A  QUANTIDADE A COMPRAR-->\n' +
+                '\n' +
+                '    <div class="col-sm-12 col-lg-2">\n' +
+                '        <label for="validationQtd">Quantidade</label>\n' +
+                '        <input type="number" class="form-control" id="validationQtd" placeholder="Qtd" name="quantidade[]" required>\n' +
+                '        <div class="valid-feedback">Preenchido com sucesso</div>\n' +
+                '        <div class="invalid-feedback">campo vazio ou valor errado.</div>\n' +
+                '    </div>\n' +
+                '\n' +
+                '    <!--ESCOLHA DA PLATEIA: FRISO/CAMAROTE/GALERIA/PLATEIA-->\n' +
+                '\n' +
+                '    <div class="col-sm-12 col-lg-2">\n' +
+                '        <label for="validationPlateia">Platéia</label>\n' +
+                '        <select class="form-control" id="validationPlateia" name="plateia[]" required>\n' +
+                '            <option></option>\n' +
+                '            <option value="plateia">Platéia</option>\n' +
+                '            <option value="frisa">Frisa</option>\n' +
+                '            <option value="camarote">Camarote</option>\n' +
+                '            <option value="balcao">Balcão</option>\n' +
+                '            <option value="galeria">Galeria</option>\n' +
+                '        </select>\n' +
+                '        <div class="valid-feedback">Preenchido com sucesso</div>\n' +
+                '        <div class="invalid-feedback">campo vazio ou valor errado.</div>\n' +
+                '    </div>\n' +
+                '\n' +
+                '    <!--ESCOLHA DAS OPÇOES DEPENDENDO DA ESCOLHA ANTERIOR-->\n' +
+                '\n' +
+                '\n' +
+                '\n' +
+                '    <div class="col-sm-12 col-lg-2">\n' +
+                '\n' +
+                '        <div id="opcao_plateia" class="hidden">\n' +
+                '            <label for="validationData">Fileira</label>\n' +
+                '            <select class="form-control" id="validationData" name="fileira[]" required>\n' +
+                '                <option></option>\n' +
+                '                <option>A</option>\n' +
+                '                <option>B</option>\n' +
+                '                <option>C</option>\n' +
+                '            </select>\n' +
+                '            <div class="valid-feedback">Preenchido com sucesso</div>\n' +
+                '            <div class="invalid-feedback">campo vazio ou valor errado.</div>\n' +
+                '        </div>\n' +
+                '\n' +
+                '        <div id="opcao_outra"  class="hidden">\n' +
+                '            <label for="validationCabine">Cabine</label>\n' +
+                '            <select class="form-control" id="validationCabine" name="cabine[]" required>\n' +
+                '                <option></option>\n' +
+                '                <option>1</option>\n' +
+                '                <option>2</option>\n' +
+                '                <option>3</option>\n' +
+                '                <option>4</option>\n' +
+                '                <option>5</option>\n' +
+                '            </select>\n' +
+                '            <div class="valid-feedback">Preenchido com sucesso</div>\n' +
+                '            <div class="invalid-feedback">campo vazio ou valor errado.</div>\n' +
+                '        </div>\n' +
+                '    </div>\n' +
+                '\n' +
+                '\n' +
+                '    <!--ESCOLHA DAS OPÇOES DEPENDENDO DA ESCOLHA ANTERIOR-->\n' +
+                '\n' +
+                '    <div class="col-sm-12 col-lg-2">\n' +
+                '        <div id="opcao_plateia_assento"  class="hidden">\n' +
+                '            <label for="assentoPlateia">Assento</label>\n' +
+                '            <select multiple class="form-control" id="assentoPlateia" name="assento[]" required  size="2" >\n' +
+                '                <option>01</option>\n' +
+                '                <option>02</option>\n' +
+                '                <option>03</option>\n' +
+                '                <option>04</option>\n' +
+                '                <option>05</option>\n' +
+                '                <option>06</option>\n' +
+                '                <option>07</option>\n' +
+                '                <option>08</option>\n' +
+                '            </select>\n' +
+                '            <div class="valid-feedback">Preenchido com sucesso</div>\n' +
+                '            <div class="invalid-feedback">campo vazio ou valor errado.</div>\n' +
+                '        </div>\n' +
+                '\n' +
+                '        <div id="opcao_outra_assento"   class="hidden">\n' +
+                '            <label for="validationDatah">Cabine</label>\n' +
+                '            <select multiple class="form-control" id="validationDatah" name="cabine[]" required size="2">\n' +
+                '\n' +
+                '                <option>01</option>\n' +
+                '                <option>02</option>\n' +
+                '                <option>03</option>\n' +
+                '                <option>04</option>\n' +
+                '                <option>05</option>\n' +
+                '                <option>06</option>\n' +
+                '            </select>\n' +
+                '            <div class="valid-feedback">Preenchido com sucesso</div>\n' +
+                '            <div class="invalid-feedback">campo vazio ou valor errado.</div>\n' +
+                '        </div>\n' +
+                '    </div>\n'+'</div>');
+        }
+    }
+    Children.remove = function(i) {
+        while (i--) {
+            Children.container.find('label:last').remove();
+        }
+    }
+
+
+    $chidrenQnt.on('change', function(){
+        var $this = jQuery(this),
+            i = $this.val(),
+            qnt = $children.find('label').length;
+
+
+        if (qnt > i) {
+            Children.remove(qnt - i);
+        }
+        if (qnt < i) {
+            Children.add(i - qnt);
+        }
+    });
+
+</script>
+
+
+<script>
+
+    $("select[name='plateia[]']").change(function(){
+
+
+
+        if( $( this ).val()=='plateia' ) {
+
+            $('#opcao_plateia').removeClass('hidden');
+            $('#opcao_plateia').addClass('visivel');
+
+            $('#opcao_outra').removeClass('visivel');
+            $('#opcao_outra').addClass('hidden');
+
+            $('#opcao_plateia_assento').removeClass('hidden');
+            $('#opcao_plateia_assento').addClass('visivel');
+
+            $('#opcao_outra_assento').removeClass('visivel');
+            $('#opcao_outra_assento').addClass('hidden');
+
+
+        } else if( $( this ).val()=='frisa' ||  $( this ).val()=='galeria'  ||  $( this ).val()=='balcao' ||  $( this ).val()=='camarote'  ) {
+
+            $('#opcao_plateia').removeClass('visivel');
+            $('#opcao_plateia').addClass('hidden');
+
+            $('#opcao_outra').removeClass('hidden');
+            $('#opcao_outra').addClass('visivel');
+
+            $('#opcao_outra_assento').removeClass('hidden');
+            $('#opcao_outra_assento').addClass('visivel');
+
+            $('#opcao_plateia_assento').removeClass('visivel');
+            $('#opcao_plateia_assento').addClass('hidden');
+
+        }
+
+    });
+
+
+
+</script>
+
+
+
+</body>
+</html>
